@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: "game#index"
-  resources :game, only: [:index]
+  resources :games
   resources :welcome, only: [:index]
-  
+  resources :players, only: [:new]
+  resources :choices
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

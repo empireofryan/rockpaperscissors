@@ -1,14 +1,44 @@
 <h1>Rock, Paper, Scissors</h1>
 <h3>Challenge a friend</h3>
 
-<%= form_tag players_path, method: "post" do %>
+<%= form_tag games_path, method: "post" do %>
   <div class="field">
-    <%= label_tag "player_one", "Your Name" %>
-    <%= text_field_tag "player_one" %>
+    <%= label_tag "player_one_name", "Your Name" %>
+    <%= text_field_tag "player_one_name" %>
   </div>
   <div class="field">
-    <%= label_tag "player_two", "Opponent" %>
-    <%= text_field_tag "player_two" %>
+    <%= label_tag "player_two_name", "Opponent" %>
+    <%= text_field_tag "player_two_name" %>
   </div>
   <%= submit_tag "Start Game" %>
 <% end %>
+
+<style>
+body {
+  background:transparent;
+}
+</style>
+
+<video autoplay loop id="bgvid">
+    <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+</video>
+
+<style>
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+}
+</style>

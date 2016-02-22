@@ -18,6 +18,6 @@ class PlayersController < ApplicationController
   end
   private
     def player_params
-      params.permit(:player_one, :player_two)
+      params.permit(:p1_name, :p2_name)
     end
 end
