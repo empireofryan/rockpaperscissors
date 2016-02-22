@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+
   def index
     @players = Player.all
   end
@@ -13,8 +14,12 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    @player.save
-    redirect_to player_path(@player)
+    if @player.valid?
+      @player.save
+      redirect_to player_path(@player)
+    else
+      render :new
+    end
   end
   private
     def player_params

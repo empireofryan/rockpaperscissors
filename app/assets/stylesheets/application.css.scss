@@ -39,6 +39,66 @@ body {
   background-color: gray;
 }
 
+#welcome_title {
+  text-align: center;
+  color:white;
+  font-family: 'Gotham-Medium';
+  font-size:5em;
+}
+
+#welcome_subhead {
+  text-align: center;
+  color:white;
+  font-family: 'Gotham-Medium';
+  font-size:3em;
+}
+
+.field {
+  text-align:center;
+  font-size:2em;
+  font-family: 'Gotham-Medium';
+}
+
+.black {
+  color:black;
+}
+
+.white {
+  color:white;
+}
+
+.button {
+   border-top: 1px solid #96d1f8;
+   background: #57778c;
+   background: -webkit-gradient(linear, left top, left bottom, from(#80898f), to(#57778c));
+   background: -webkit-linear-gradient(top, #80898f, #57778c);
+   background: -moz-linear-gradient(top, #80898f, #57778c);
+   background: -ms-linear-gradient(top, #80898f, #57778c);
+   background: -o-linear-gradient(top, #80898f, #57778c);
+   padding: 8.5px 17px;
+   -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 17px;
+   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
 .title {
   font-family:'Gotham-Book';
   text-align:center;

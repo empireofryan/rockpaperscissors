@@ -1,27 +1,23 @@
-<h1>Rock, Paper, Scissors</h1>
-<h3>Challenge a friend</h3>
+<h1 id="welcome_title">Rock, Paper, Scissors</h1>
+<h3 id="welcome_subhead">Challenge a friend</h3><br>
 
 <%= form_tag games_path, method: "post" do %>
   <div class="field">
-    <%= label_tag "player_one_name", "Your Name" %>
-    <%= text_field_tag "player_one_name" %>
+    <%= label_tag "player_one_name", "Your Name", class: 'white' %><br>
+    <div class="black"><%= text_field_tag "player_one_name" %></div>
+  </div><br>
+  <div class="field">
+    <%= label_tag "player_two_name", "Opponent", class: 'white' %><br>
+    <div class="black"><%= text_field_tag "player_two_name" %></div><br>
   </div>
   <div class="field">
-    <%= label_tag "player_two_name", "Opponent" %>
-    <%= text_field_tag "player_two_name" %>
+  <%= submit_tag "Start Game", class: 'button' %>
   </div>
-  <%= submit_tag "Start Game" %>
 <% end %>
 
-<style>
-body {
-  background:transparent;
-}
-</style>
-
 <video autoplay loop id="bgvid">
-    <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+<!--     <source src="https://github.com/empireofryan/rockpaperscissors/blob/master/app/assets/images/background.webm" type="video/webm"> -->
+    <source src="http://empireofryan.github.io/background.mp4" type="video/mp4">
 </video>
 
 <style>
