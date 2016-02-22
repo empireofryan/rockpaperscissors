@@ -4,11 +4,11 @@
 <%= form_tag games_path, method: "post" do %>
   <div class="field">
     <%= label_tag "player_one_name", "Your Name", class: 'white' %><br>
-    <div class="black"><%= text_field_tag "player_one_name" %></div>
+    <div class="black"><%= text_field_tag "player_one_name",nil, required: true %></div>
   </div><br>
   <div class="field">
     <%= label_tag "player_two_name", "Opponent", class: 'white' %><br>
-    <div class="black"><%= text_field_tag "player_two_name" %></div><br>
+    <div class="black"><%= text_field_tag "player_two_name", nil, required: true %></div><br>
   </div>
   <div class="field">
   <%= submit_tag "Start Game", class: 'button' %>

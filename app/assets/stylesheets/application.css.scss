@@ -200,8 +200,7 @@ body {
   margin-right: auto;
 }
 
-.turn:active, .turn:hover, .turn:focus,
-#rock a:active, #rock a:hover, #rock a:focus{
+#rock:active, #rock:hover, #rock:focus{
 /*change the background colour
 background: #2c3036;*/
 /*remove the rotation*/
@@ -427,7 +426,7 @@ transition: all .15s ease-in-out;
   -webkit-border-bottom-left-radius:220px 120px;
   -moz-border-radius:220px / 120px;
   border-radius:220px / 120px;
-  opacity:0;
+  display:none;
 }
 
 .oval-speech-result p {font-size:1.25em;}

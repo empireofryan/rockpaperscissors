@@ -2,7 +2,7 @@ class ChoicesController < ApplicationController
 
   def create
     @game = Game.find params[:game_id]
-    @choice = @game.choices.where(winner_id: nil).last || Choice.new(game_id: @game.id)
+    @choice = @game.choices.where(winner_id: nil, result: nil).last  || Choice.new(game_id: @game.id)
     if params[:player_one_id].present?
       @player  = Player.find params[:player_one_id]
       #@choice.player_one_id = @player.id
@@ -14,6 +14,9 @@ class ChoicesController < ApplicationController
       @choice.player_two_choice = params[:option]
     end
     @choice.save
+    respond_to do |format|
+      format.js
+    end
   end  
 
 end
