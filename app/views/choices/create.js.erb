@@ -2,26 +2,13 @@
   <% if @choice.result == "finished" %>
     <% if @choice.winner_id == @game.player_one_id %>
       $('#player_one_score').html('Score: <%= @game.choices.where(winner_id: @game.player_one.id).count %>')
-      $('.oval-speech-choose').hide()
-      $('.oval-speech-waiting').hide()
-      $('.oval-speech-result').show()
-      $('.oval-speech-result').html('<%= @choice.winner.name %> wins <br> Play again') 
+      $('.oval-speech-result').show().html("<%= @choice.winner.name %> wins! <br> <p class='play_again'>Play Again") 
     <% end %>
     <% if @choice.winner_id == @game.player_two_id %>
       $('#player_two_score').html('Score: <%= @game.choices.where(winner_id: @game.player_two.id).count %>')
-      $('.oval-speech-choose').hide()
-      $('.oval-speech-waiting').hide()
-      $('.oval-speech-result').show()
-      $('.oval-speech-result').html('<%= @choice.winner.name %> wins <br> Play again') 
+      $('.oval-speech-result').show().html("<%= @choice.winner.name %> wins! <br> <p class='play_again'>Play Again") 
     <% end %>
   <% elsif @choice.result == "draw" %>
-    $('.oval-speech-choose').hide()
-    $('.oval-speech-waiting').hide()
-    $('.oval-speech-result').show()
-    $('.oval-speech-result').html("It's a draw <br> <a href='/games/<%= @game.id %>'>Play Again</a>") 
+    $('.oval-speech-result').show().html("It's a draw! <br> <p class='play_again'>Play Again") 
   <% end %>
- <% else %>
-     $('.oval-speech-choose').hide()
-     $('.oval-speech-waiting').show()
-     //$('.oval-speech-result').hide()     
 <% end %>

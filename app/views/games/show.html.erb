@@ -1,7 +1,4 @@
 <div class="container">
-  <div class="header">
-    <div id="url" style="">COPY URL (<%= game_url(@game) %>) TO FRIEND TO PLAY</div>
-  </div>
   <div class="row">
     <div class="col-md-2">
       <h3 class='name'><%= @game.player_one.name %></h3>
@@ -11,137 +8,19 @@
       <%= link_to((image_tag "scissors.png", :id => "scissors"), choices_path(game_id: @game.id, player_one_id: @game.player_one.id, option: 'scissors'), method: :post, remote: true) %>
     </div>
     <div class="col-md-8">
-      <h1 class="title" style="">ROCK, PAPER, SCISSORS - SHOOT!</h1>
-      <p class="oval-speech-choose bubble-text" style="position:absolute; margin-left:400px; margin-top:-60px">Choose your pick</p>
-      <p class="oval-speech-waiting bubble-text" style="position:absolute; margin-left:400px; margin-top:-60px">Waiting for opponent</p>
-      <p class="oval-speech-result bubble-text" style="position:absolute; margin-left:400px; margin-top:-60px"></p>
+      <h1 class="title" style="">ROCK, PAPER, SCISSORS - SHOOT!</h1><br><br>
+      <p class="oval-speech-choose bubble-text">Choose your pick</p>
+      <p class="oval-speech-waiting bubble-text">Waiting for opponent</p>
+      <p class="oval-speech-result bubble-text"></p>
       <%= image_tag "referee.png", :id => "referee" %>
     </div>
     <div class="col-md-2">
       <h3 class='name'><%= @game.player_two.name %></h3>
       <h3 class='score' id="player_two_score">Score: <%= @game.choices.where(winner_id: @game.player_two.id).count %></h3>
-      <%= link_to((image_tag "rock.png"),choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'rock'), method: :post, :id => "opp_rock", remote: true) %>
-      <%= link_to((image_tag "paper.png"),choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'paper'), method: :post,:id => "opp_paper", remote: true) %>
-      <%= link_to((image_tag "scissors.png"), choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'scissors'), method: :post,:id => "opp_scissors", remote: true) %>
+      <%= link_to((image_tag "rock.png", :id => "opp_rock"),choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'rock'), method: :post, remote: true) %>
+      <%= link_to((image_tag "paper.png", :id => "opp_paper"),choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'paper'), method: :post, remote: true) %>
+      <%= link_to((image_tag "scissors.png", :id => "opp_scissors"), choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'scissors'), method: :post, remote: true) %>
     </div>
   </div>
 </div>
 
-<script>
-$( document ).ready(function() {
-  setTimeout(function() {
-    $( ".oval-speech-choose" ).animate({
-      opacity: 1
-    }, 1400, function() {
-    });
-  }, 3000);
-});
-$( "#rock" ).click(function() {
-  $( "#rock" ).animate({
-    left: "+=150"
-  }, 400, function() {
-  });
-  $( "#scissors" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#paper" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( ".oval-speech-waiting" ).animate({
-    opacity: 1
-  }, 1400, function() {
-  });
-});
-$( "#paper" ).click(function() {
-  $( "#rock" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#scissors" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#paper" ).animate({
-    left: "+=150"
-  }, 400, function() {
-  });
-  $( ".oval-speech-waiting" ).animate({
-    opacity: 1
-  }, 1400, function() {
-  });
-});
-$( "#scissors" ).click(function() {
-  $( "#rock" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#scissors" ).animate({
-    left: "+=150"
-  }, 400, function() {
-  });
-  $( "#paper" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( ".oval-speech-waiting" ).animate({
-    opacity: 1
-  }, 1400, function() {
-  });
-});
-$( "#opp_rock" ).click(function() {
-  $( "#opp_rock" ).animate({
-    right: "+=150"
-  }, 400, function() {
-  });
-  $( "#opp_scissors" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#opp_paper" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( ".oval-speech-waiting" ).animate({
-    opacity: 1
-  }, 1400, function() {
-  });
-});
-$( "#opp_paper" ).click(function() {
-  $( "#opp_rock" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#opp_scissors" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#opp_paper" ).animate({
-    right: "+=150"
-  }, 400, function() {
-  });
-  $( ".oval-speech-waiting" ).animate({
-    opacity: 1
-  }, 1400, function() {
-  });
-});
-$( "#opp_scissors" ).click(function() {
-  $( "#opp_rock" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( "#opp_scissors" ).animate({
-    right: "+=150"
-  }, 400, function() {
-  });
-  $( "#opp_paper" ).animate({
-    opacity: .3
-  }, 400, function() {
-  });
-  $( ".oval-speech-waiting" ).animate({
-    opacity: 1
-  }, 1400, function() {
-  });
-});
-</script>

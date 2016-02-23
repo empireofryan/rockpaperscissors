@@ -1,12 +1,9 @@
 class Choice < ActiveRecord::Base
 
-
-validates :game_id, presence: true
-
+  validates :game_id, presence: true
   belongs_to :game
   belongs_to :winner, class_name: 'Player'
-
-  before_save  :set_winner_id_and_result
+  before_save :set_winner_id_and_result
 
 private
     def set_winner_id_and_result
