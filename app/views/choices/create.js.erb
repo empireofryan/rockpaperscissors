@@ -1,5 +1,5 @@
 <% if @choice.result.present? %>
-  <% if @choice.result == "finished" %>
+  <% if @choice.result == :finished %>
     <% if @choice.winner_id == @game.player_one_id %>
       $('#player_one_score').html('Score: <%= @game.choices.where(winner_id: @game.player_one.id).count %>')
       $('.oval-speech-result').show().html("<%= @choice.winner.name %> wins! <br> <p class='play_again'>Play Again") 

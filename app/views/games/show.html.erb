@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-2">
       <h3 class='name'><%= @game.player_one.name %></h3>
-      <h3 class="score" id="player_one_score">Score: <%= @game.choices.where(winner_id: @game.player_one.id).count %></h3>
-      <%= link_to((image_tag "rock.png", :id => "rock"),choices_path(game_id: @game.id, player_one_id: @game.player_one.id, option: 'rock'), method: :post, :class => "turn", remote: true) %>
-      <%= link_to((image_tag "paper.png", :id => "paper"),choices_path(game_id: @game.id, player_one_id: @game.player_one.id, option: 'paper'), method: :post, remote: true) %>
+      <h3 class="score" id="player_one_score">Score: <%= score(@game, @game.player_one) %></h3>
+      <%= object(@game,@game.player_one,"rock", "rock", 'player_one_id') %>
+      <%= object(@game,@game.player_one,"paper", "paper", 'player_one_id') %>
       <%= link_to((image_tag "scissors.png", :id => "scissors"), choices_path(game_id: @game.id, player_one_id: @game.player_one.id, option: 'scissors'), method: :post, remote: true) %>
     </div>
     <div class="col-md-8">
@@ -17,7 +17,7 @@
     <div class="col-md-2">
       <h3 class='name'><%= @game.player_two.name %></h3>
       <h3 class='score' id="player_two_score">Score: <%= @game.choices.where(winner_id: @game.player_two.id).count %></h3>
-      <%= link_to((image_tag "rock.png", :id => "opp_rock"),choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'rock'), method: :post, remote: true) %>
+      <%= object(@game,@game.player_two,"rock", "opp_rock",'player_two_id') %>
       <%= link_to((image_tag "paper.png", :id => "opp_paper"),choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'paper'), method: :post, remote: true) %>
       <%= link_to((image_tag "scissors.png", :id => "opp_scissors"), choices_path(game_id: @game.id, player_two_id: @game.player_two.id, option: 'scissors'), method: :post, remote: true) %>
     </div>
