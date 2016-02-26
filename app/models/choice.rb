@@ -30,18 +30,14 @@ private
       CHOICES[player_one_throw.to_sym][player_two_throw.to_sym]
     end
 
-    def set_winner_id_and_result
-
-      if !player_one_choice.nil? && !player_two_choice.nil?
-        play_game = rockpaperscissors(player_one_choice, player_two_choice)
-        result = play_game[:status]
-       
-        if play_game[:winner_id] != nil
-          winner_id = play_game[:winner_id] == :player_two ? self.game.player_two_id : self.game.player_one_id
-        end
-        
-        logger.debug "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-        logger.debug play_game[:winner_id]
-      end
-    end  
+   def set_winner_id_and_result
+     if !player_one_choice.nil? && !player_two_choice.nil?
+       play_game = rockpaperscissors(player_one_choice, player_two_choice)
+       self.result = play_game[:status]
+      
+       if play_game[:winner_id] != nil
+         self.winner_id = (play_game[:winner_id] == :player_two ? self.game.player_two_id : self.game.player_one_id)
+       end
+     end
+   end
 end
